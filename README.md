@@ -2,6 +2,8 @@
 
 A gaze-based mouse targeting tool for [Talon](https://talonvoice.com/) that uses eye tracking and parrot sounds to quickly navigate and click anywhere on screen.
 
+Built by [Ember & Tide](https://emberandtide.org/). For custom Talon development, [get in touch](https://emberandtide.org/contact).
+
 ## Installation
 
 ```
@@ -11,9 +13,9 @@ git clone https://github.com/aedison/gaze-mouse-grid.git
 
 ## Requirements
 
-- [Talon](https://talonvoice.com/) with an eye tracker
+- [Talon](https://talonvoice.com/) with an eye tracker (e.g., [Tobii Eye Tracker 5](https://gaming.tobii.com/product/eye-tracker-5/))
 - Eye tracking **"Always on"** must be enabled in Talon's eye tracking preferences (the grid needs continuous gaze data even when eye tracking mouse control is off)
-- A parrot model with at least 3 sounds (defaults use `kuh`, `tih`, and `clop` — all sounds are customizable)
+- A parrot model with at least 3 sounds — train one with [parrot.py](https://github.com/chaosparrot/parrot.py) (defaults use `kuh`, `tih`, and `clop` but all sounds are customizable)
 
 ## How it works
 
@@ -69,7 +71,11 @@ Any sound your parrot model recognizes can be used.
 
 ## Troubleshooting
 
-- **Grid opens but cursor isn't near your target** — increase `user.gaze_grid_settle_delay` (e.g., `"400ms"`) to give your eye tracker more time to update
-- **Grid cells are too small/large** — adjust `user.gaze_grid_size` (lower = fewer, larger cells; higher = more, smaller cells)
-- **Grid overlay is too small/large on screen** — adjust `user.gaze_grid_display_ratio` (0.3 = 30% of screen, 0.7 = 70%)
-- **Initial zoom is too tight/loose** — adjust `user.gaze_grid_initial_narrow_factor` (1 = no initial zoom, 3 = one-third of screen)
+- **Grid opens but cursor isn't near your target**
+  - Increase `user.gaze_grid_settle_delay` (e.g., `"400ms"`) to give your eye tracker more time to update
+- **Grid cells are too small/large**
+  - Adjust `user.gaze_grid_size` — lower = fewer, larger cells; higher = more, smaller cells
+- **Grid overlay is too small/large on screen**
+  - Adjust `user.gaze_grid_display_ratio` — 0.3 = 30% of screen, 0.7 = 70%
+- **Initial zoom is too tight/loose**
+  - Adjust `user.gaze_grid_initial_narrow_factor` — 1 = no initial zoom, 3 = one-third of screen
