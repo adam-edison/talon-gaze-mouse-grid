@@ -1,3 +1,5 @@
+not mode: sleep
+-
 # Voice commands available when the grid is NOT open.
 # To change the parrot sound, replace "kuh" with any sound your parrot model supports
 # (e.g., parrot(pop), parrot(hiss), parrot(ah), etc.)
