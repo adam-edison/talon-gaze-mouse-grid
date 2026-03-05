@@ -46,13 +46,6 @@ You can close the grid without clicking by saying **"gaze grid close"** or makin
 
 All settings have sensible defaults. Override any setting by creating a `.talon` file with a `settings():` block. See `gaze_mouse_grid_settings.talon` for the full list with explanations.
 
-- **`user.gaze_grid_size`** (int, default `6`) — grid subdivision count (NxN cells)
-- **`user.gaze_grid_initial_narrow_factor`** (int, default `2`) — how much the initial gaze-based narrow zooms in
-- **`user.gaze_grid_settle_delay`** (str, default `"200ms"`) — delay for eye tracker to update cursor position
-- **`user.gaze_grid_line_color`** (str, default `"ff0000ff"`) — grid line color in RRGGBBAA hex
-- **`user.gaze_grid_hint_color`** (str, default `"ff000044"`) — hint highlight color in RRGGBBAA hex
-- **`user.gaze_grid_line_width`** (int, default `1`) — grid line stroke width in pixels
-- **`user.gaze_grid_display_ratio`** (float, default `0.5`) — fraction of screen used for the drawn grid
 
 ### Customizing sounds
 
@@ -67,7 +60,7 @@ Any sound your parrot model recognizes can be used.
 
 ## Known limitations
 
-- **Talon menu dropdown** — the grid cannot target items inside the Talon menu bar dropdown. macOS renders it at a special overlay window level that the screenshot capture API cannot include. Close the grid and interact with the Talon menu normally.
+- **Talon menu dropdown** — the grid cannot reliably target items inside the Talon menu bar dropdown.
 
 ## Troubleshooting
 
