@@ -8,7 +8,7 @@ Built by [Ember & Tide](https://emberandtide.org/). For custom Talon development
 
 ```
 cd ~/.talon/user
-git clone https://github.com/aedison/gaze-mouse-grid.git
+git clone https://github.com/developer-funky-goblin/talon-gaze-mouse-grid.git
 ```
 
 ## Requirements
