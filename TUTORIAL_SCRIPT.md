@@ -145,7 +145,36 @@ SAY: click when ready
 DO: `clop` click
 
 SAY: that's Gaze Mouse Grid
-SAY: check the README for install, settings, troubleshooting
+
+**Stop recording.**
+
+---
+
+## Segment 5: Settings (~40s)
+
+SAY: everything is customizable
+
+DO: open `gaze_mouse_grid_settings.talon` in Cursor
+
+SAY: just change the values directly in this file
+
+SAY: grid size — how many cells
+SAY: default is 6, so 6 by 6
+SAY: lower it for bigger cells, easier to target
+
+SAY: initial narrow factor — how much it zooms on first open
+SAY: 2 is half the screen, 3 is a third
+
+SAY: settle delay — how long it waits for the eye tracker
+SAY: increase this if the grid opens in the wrong spot
+
+SAY: display ratio — how big the overlay is on screen
+SAY: 0.5 is half, bump it up if you want a bigger view
+
+SAY: line color, hint color — RRGGBBAA hex
+SAY: line width — pixels
+
+SAY: check the README for full details
 
 **Stop recording.**
 
@@ -160,7 +189,8 @@ SAY: check the README for install, settings, troubleshooting
   - "Gaze Mouse Grid — Large Screen Corners"
   - "Gaze Mouse Grid — Basic Usage"
   - "Gaze Mouse Grid — Dismiss, Hover, & Multiple Narrows"
-- [ ] Create playlist, all 4 in order
+  - "Gaze Mouse Grid — Settings"
+- [ ] Create playlist, all 5 in order
 - [ ] Fix auto-captions: "Talon," "parrot," "kuh," "tih," "clop"
 - [ ] Add GitHub repo URL to each description
 - [ ] Publish
