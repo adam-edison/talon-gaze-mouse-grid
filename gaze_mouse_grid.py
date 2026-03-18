@@ -268,18 +268,39 @@ class GazeMouseGrid:
         self.update_screenshot()
 
     def narrow_centered_on(self, x, y, factor=None):
-        """Narrow self.rect by the given factor, centered on (x, y)."""
+        """Narrow self.rect by the given factor, centered on (x, y).
+
+        If narrowing would shrink the rect below the minimum useful size,
+        re-center on (x, y) at the initial zoom level instead.
+        """
         if factor is None:
             factor = settings.get("user.gaze_grid_size")
 
+        grid_size = settings.get("user.gaze_grid_size")
         new_w = self.rect.width / factor
         new_h = self.rect.height / factor
+
+        if new_w < grid_size or new_h < grid_size:
+            self._recenter_current_zoom(x, y)
+            return
 
         new_x = clamp(x - new_w / 2, self.rect.x, self.rect.x + self.rect.width - new_w)
         new_y = clamp(y - new_h / 2, self.rect.y, self.rect.y + self.rect.height - new_h)
 
         self._draw_rect_cache = None
         self.rect = Rect(new_x, new_y, new_w, new_h)
+
+    def _recenter_current_zoom(self, x, y):
+        """Re-center the grid on (x, y) at the current zoom level."""
+        screen_rect = self.screen.rect
+        w = self.rect.width
+        h = self.rect.height
+
+        new_x = clamp(x - w / 2, screen_rect.x, screen_rect.x + screen_rect.width - w)
+        new_y = clamp(y - h / 2, screen_rect.y, screen_rect.y + screen_rect.height - h)
+
+        self._draw_rect_cache = None
+        self.rect = Rect(new_x, new_y, w, h)
 
     def click_target(self):
         """Close grid (moves mouse to target) and click."""
