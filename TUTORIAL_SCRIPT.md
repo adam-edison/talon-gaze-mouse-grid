@@ -1,7 +1,7 @@
 # Gaze Mouse Grid — Tutorial Video Script
 
 **~3 minutes total**
-Cmd+Shift+5 with mic on. One take per segment.
+Cmd+Shift+5 with mic on. Single recording, edit in iMovie.
 
 ---
 
@@ -45,8 +45,6 @@ SAY: need Talon, eye tracker with "Always on", trained parrot model
 SAY: check the README
 DO: show Talon dropdown with "Always on" setting
 
-**Stop recording.**
-
 ---
 
 ## Segment 2: Large Screen Corners (~30s)
@@ -68,8 +66,6 @@ DO: `tih` narrow
 DO: `clop` click
 
 DO: repeat for a different corner
-
-**Stop recording.**
 
 ---
 
@@ -105,8 +101,6 @@ DO: pause — let viewer see
 SAY: click, grid closes, lands on target
 
 DO: `clop` — click
-
-**Stop recording.**
 
 ---
 
@@ -147,8 +141,6 @@ DO: `clop` click
 
 SAY: that's Gaze Mouse Grid
 
-**Stop recording.**
-
 ---
 
 ## Segment 5: Settings (~40s)
@@ -183,15 +175,8 @@ SAY: check the README for full details
 
 ## Post-Production
 
-- [ ] Trim each recording (QuickTime: Edit > Trim)
-- [ ] Upload to YouTube
-- [ ] Titles:
-  - "Gaze Mouse Grid — Why I Built This"
-  - "Gaze Mouse Grid — Large Screen Corners"
-  - "Gaze Mouse Grid — Basic Usage"
-  - "Gaze Mouse Grid — Dismiss, Hover, & Multiple Narrows"
-  - "Gaze Mouse Grid — Settings"
-- [ ] Create playlist, all 5 in order
+- [ ] Import into iMovie, cut dead air and mistakes, cross dissolve at joins
+- [ ] Upload to YouTube — title: "Gaze Mouse Grid — Tutorial"
 - [ ] Fix auto-captions: "Talon," "parrot," "kuh," "tih," "clop"
-- [ ] Add GitHub repo URL to each description
+- [ ] Add GitHub repo URL to description
 - [ ] Publish
