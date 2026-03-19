@@ -27,8 +27,9 @@ DO: enable eye tracking, try to click a far corner, show the miss
 
 SAY: eye tracking cursor is distracting
 SAY: jumps around while I'm trying to read
-DO: keep eye tracking on, read code, let cursor jump around
-DO: turn it off, read peacefully
+DO: switch to BoardGameArena game
+DO: keep eye tracking on, try to read — cursor jumps, hover help fires everywhere
+DO: turn it off, read peacefully — hover help only when you want it
 
 SAY: voice commands wear out my voice
 SAY: want a voiceless workflow
