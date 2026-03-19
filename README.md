@@ -5,6 +5,15 @@ A gaze-based mouse targeting tool for [Talon](https://talonvoice.com/) that uses
 Built by [Ember & Tide](https://emberandtide.org/). 
 For your custom software development needs - big or small, [get in touch](https://emberandtide.org/contact).
 
+## Why I built this
+
+1. **Existing mouse grids are slow** — too many steps to narrow down to a target
+2. **Eye trackers lose accuracy on large monitors** — especially in the corners on screens bigger than 27"
+3. **The eye tracking cursor is distracting** — it jumps around while you're trying to read, triggering hover tooltips and other UI noise
+4. **Voice commands wear out your voice** — I wanted a fully voiceless workflow using only parrot sounds
+
+Gaze Mouse Grid solves all four: it starts the grid where you're already looking, reaches any corner fast, keeps eye tracking off until you need it, and the entire interaction is parrot sounds.
+
 ## Installation
 
 ```
