@@ -270,8 +270,8 @@ class GazeMouseGrid:
     def narrow_centered_on(self, x, y, factor=None):
         """Narrow self.rect by the given factor, centered on (x, y).
 
-        If narrowing would shrink the rect below the minimum useful size,
-        re-center on (x, y) at the initial zoom level instead.
+        If narrowing would shrink cells below one pixel,
+        re-center on (x, y) at the current zoom level instead.
         """
         if factor is None:
             factor = settings.get("user.gaze_grid_size")
@@ -280,7 +280,7 @@ class GazeMouseGrid:
         new_w = self.rect.width / factor
         new_h = self.rect.height / factor
 
-        if new_w < grid_size or new_h < grid_size:
+        if new_w < 1 or new_h < 1:
             self._recenter_current_zoom(x, y)
             return
 
