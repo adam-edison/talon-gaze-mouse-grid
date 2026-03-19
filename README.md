@@ -2,7 +2,7 @@
 
 A gaze-based mouse targeting tool for [Talon](https://talonvoice.com/) that uses eye tracking and parrot sounds to quickly navigate and click anywhere on screen.
 
-Built by [Ember & Tide](https://emberandtide.org/). 
+Built by [Ember & Tide](https://emberandtide.org/).
 For your custom software development needs - big or small, [get in touch](https://emberandtide.org/contact).
 
 ## Why I built this
@@ -55,7 +55,6 @@ You can close the grid without clicking by saying **"gaze grid close"** or makin
 ## Configuration
 
 All settings have sensible defaults. Override any setting by creating a `.talon` file with a `settings():` block. See `gaze_mouse_grid_settings.talon` for the full list with explanations.
-
 
 ### Customizing sounds
 
