@@ -19,6 +19,16 @@ Cmd+Shift+5 with mic on. Single recording, edit in iMovie.
 ### Intro
 
 SAY
+* hey, I'm Adam Edison
+* I'm a software developer and cofounder of Ember and Tide
+* I've been a member of the Talon beta community since 2020
+* this community has saved me a lot of pain in my hands
+* I wanted to start giving back, so I created this plugin
+* I hope you find it as useful as I have
+
+### Four problems this solves
+
+SAY
 * built this for four reasons
 
 ### Existing grids are slow
