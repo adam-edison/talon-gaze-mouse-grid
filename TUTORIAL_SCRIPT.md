@@ -16,158 +16,267 @@ Cmd+Shift+5 with mic on. Single recording, edit in iMovie.
 
 ## Segment 1: Why I Built This (~50s)
 
-SAY: built this for four reasons
+### Intro
 
-SAY: existing mouse grids are slow, too many steps
-DO: open standard mouse grid, slowly narrow to an icon, close it
+SAY
+* built this for four reasons
 
-SAY: eye trackers lose accuracy on monitors bigger than 27"
-SAY: especially in the corners
-DO: enable eye tracking, try to click a far corner, show the miss
+### Existing grids are slow
 
-SAY: eye tracking cursor is distracting
-SAY: jumps around while I'm trying to read
-DO: switch to BoardGameArena game
-DO: keep eye tracking on, try to read — cursor jumps, hover help fires everywhere
-DO: turn it off, read peacefully — hover help only when you want it
+SAY
+* existing mouse grids are slow, too many steps
 
-SAY: voice commands wear out my voice
-SAY: want a voiceless workflow
+DO
+* open standard mouse grid, slowly narrow to an icon, close it
 
-SAY: this plugin solves all four
-SAY: starts grid where you're looking
-SAY: fast and accurate on large screens
-SAY: eye tracking stays off until you need it
-SAY: entire interaction is parrot sounds
-DO: `kuh` open, `tih` narrow, `clop` click
+### Eye trackers lose accuracy on large monitors
 
-SAY: need Talon, eye tracker with "Always on", trained parrot model
-SAY: check the README
-DO: show Talon dropdown with "Always on" setting
+SAY
+* eye trackers lose accuracy on monitors bigger than 27"
+* especially in the corners
+
+DO
+* enable eye tracking, try to click a far corner, show the miss
+
+### Eye tracking cursor is distracting
+
+SAY
+* eye tracking cursor is distracting
+* jumps around while I'm trying to read
+
+DO
+* switch to BoardGameArena game
+* keep eye tracking on, try to read — cursor jumps, hover help fires everywhere
+* turn it off, read peacefully — hover help only when you want it
+
+### Voice commands wear out your voice
+
+SAY
+* voice commands wear out my voice
+* want a voiceless workflow
+
+### This plugin solves all four
+
+SAY
+* this plugin solves all four
+* starts grid where you're looking
+* fast and accurate on large screens
+* eye tracking stays off until you need it
+* entire interaction is parrot sounds
+
+DO
+* `kuh` open, `tih` narrow, `clop` click
+
+### Requirements
+
+SAY
+* need Talon, eye tracker with "Always on", trained parrot model
+* check the README
+
+DO
+* show Talon dropdown with "Always on" setting
 
 ---
 
 ## Segment 2: Large Screen Corners (~30s)
 
-SAY: targeting something in a far corner
+### Set up the demo
 
-DO: look at a far corner
-DO: `kuh` — grid opens
+SAY
+* targeting something in a far corner
 
-SAY: grid jumped to where I was looking
-SAY: red cell shows where it thinks my eyes landed
+### Open grid in a corner
 
-DO: pause — let viewer see grid and red hint cell
+DO
+* look at a far corner
+* `kuh` — grid opens
 
-SAY: one narrow, one click
-SAY: corner target in under two seconds
+SAY
+* grid jumped to where I was looking
+* red cell shows where it thinks my eyes landed
 
-DO: `tih` narrow
-DO: `clop` click
+DO
+* pause — let viewer see grid and red hint cell
 
-DO: repeat for a different corner
+### Click the corner target
+
+SAY
+* one narrow, one click
+* corner target in under two seconds
+
+DO
+* `tih` narrow
+* `clop` click
+* repeat for a different corner
 
 ---
 
 ## Segment 3: Basic Usage (~50s)
 
-SAY: full workflow step by step
-SAY: clicking a small UI icon
+### Pick a target
 
-DO: pick a small target
-DO: sidebar icon, collapse arrow, gutter icon, tab close button
+SAY
+* full workflow step by step
+* clicking a small UI icon
 
-SAY: open the grid
+DO
+* pick a small target
+* sidebar icon, collapse arrow, gutter icon, tab close button
 
-DO: look at target
-DO: `kuh` — grid opens
+### Open the grid
 
-SAY: zoomed into where I was looking
-SAY: screenshot as grid overlay
-SAY: red cell shows where gaze landed
+SAY
+* open the grid
 
-DO: pause — let viewer see
+DO
+* look at target
+* `kuh` — grid opens
 
-SAY: narrow
+SAY
+* zoomed into where I was looking
+* screenshot as grid overlay
+* red cell shows where gaze landed
 
-DO: look at correct cell
-DO: `tih` — narrows
+DO
+* pause — let viewer see
 
-SAY: zoomed in further
-SAY: can see the exact icon
+### Narrow
 
-DO: pause — let viewer see
+SAY
+* narrow
 
-SAY: click, grid closes, lands on target
+DO
+* look at correct cell
+* `tih` — narrows
 
-DO: `clop` — click
+SAY
+* zoomed in further
+* can see the exact icon
+
+DO
+* pause — let viewer see
+
+### Click
+
+SAY
+* click, grid closes, lands on target
+
+DO
+* `clop` — click
 
 ---
 
 ## Segment 4: More Workflows (~60s)
 
-SAY: more you can do beyond basic click
+SAY
+* more you can do beyond basic click
 
-SAY: dismissing
-SAY: same sound closes it, no click
+### Dismissing
 
-DO: `kuh` open
-DO: `kuh` close
+SAY
+* dismissing
+* same sound closes it, no click
 
-SAY: hovering
-SAY: narrow to target, dismiss instead of click
-SAY: cursor moves but doesn't click
+DO
+* `kuh` open
+* `kuh` close
 
-DO: `kuh` open
-DO: `tih` narrow
-DO: `kuh` dismiss
-DO: show cursor on target, tooltip appears
+### Hovering
 
-SAY: multiple narrows
-SAY: zoom as many times as needed
-SAY: all the way to pixel level
+SAY
+* hovering
+* narrow to target, dismiss instead of click
+* cursor moves but doesn't click
 
-DO: `kuh` open
-DO: `tih` four or five times until showing pixels
+DO
+* `kuh` open
+* `tih` narrow
+* `kuh` dismiss
+* show cursor on target, tooltip appears
 
-SAY: at deepest zoom, narrowing re-centers the view
-SAY: same zoom level, just pans to your selection
+### Multiple narrows
 
-DO: `tih` one more time — re-centers
+SAY
+* multiple narrows
+* zoom as many times as needed
+* all the way to pixel level
 
-SAY: click when ready
+DO
+* `kuh` open
+* `tih` four or five times until showing pixels
 
-DO: `clop` click
+### Re-centering at pixel level
 
-SAY: that's Gaze Mouse Grid
+SAY
+* at deepest zoom, narrowing re-centers the view
+* same zoom level, just pans to your selection
+
+DO
+* `tih` one more time — re-centers
+
+### Click when ready
+
+SAY
+* click when ready
+
+DO
+* `clop` click
+
+### Wrap up
+
+SAY
+* that's Gaze Mouse Grid
 
 ---
 
 ## Segment 5: Settings (~40s)
 
-SAY: everything is customizable
+### Open the settings file
 
-DO: open `gaze_mouse_grid_settings.talon` in Cursor
+SAY
+* everything is customizable
 
-SAY: just change the values directly in this file
+DO
+* open `gaze_mouse_grid_settings.talon` in Cursor
 
-SAY: grid size — how many cells
-SAY: default is 6, so 6 by 6
-SAY: lower it for bigger cells, easier to target
+SAY
+* just change the values directly in this file
 
-SAY: initial narrow factor — how much it zooms on first open
-SAY: 2 is half the screen, 3 is a third
+### Grid size
 
-SAY: settle delay — how long it waits for the eye tracker
-SAY: increase this if the grid opens in the wrong spot
+SAY
+* grid size — how many cells
+* default is 6, so 6 by 6
+* lower it for bigger cells, easier to target
 
-SAY: display ratio — how big the overlay is on screen
-SAY: 0.5 is half, bump it up if you want a bigger view
+### Initial narrow factor
 
-SAY: line color, hint color — RRGGBBAA hex
-SAY: line width — pixels
+SAY
+* initial narrow factor — how much it zooms on first open
+* 2 is half the screen, 3 is a third
 
-SAY: check the README for full details
+### Settle delay
+
+SAY
+* settle delay — how long it waits for the eye tracker
+* increase this if the grid opens in the wrong spot
+
+### Display ratio
+
+SAY
+* display ratio — how big the overlay is on screen
+* 0.5 is half, bump it up if you want a bigger view
+
+### Colors and line width
+
+SAY
+* line color, hint color — RRGGBBAA hex
+* line width — pixels
+
+### Closing
+
+SAY
+* check the README for full details
 
 **Stop recording.**
 
