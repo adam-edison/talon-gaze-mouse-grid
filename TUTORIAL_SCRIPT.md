@@ -29,12 +29,16 @@ First, existing mouse grids are just slow. There are too many steps to get where
 DO
 * open standard mouse grid, slowly narrow to an icon, close it
 
+SAY `drowse`
+
 ### Eye trackers lose accuracy on large monitors
 
 Second, eye trackers lose accuracy on monitors bigger than 27 inches — especially in the corners. Watch what happens when I try to click something way over here.
 
 DO
 * enable eye tracking, try to click a far corner, show the miss
+
+SAY `drowse`
 
 ### Eye tracking cursor is distracting
 
@@ -44,6 +48,8 @@ DO
 * switch to BoardGameArena game
 * keep eye tracking on, try to read — cursor jumps, hover help fires everywhere
 * turn it off, read peacefully
+
+SAY `drowse`
 
 See how much better that is when the cursor isn't bouncing around?
 
@@ -60,12 +66,16 @@ Let me show you what that looks like. I'll open the grid, narrow in, and click.
 DO
 * `kuh` open, `tih` narrow, `clop` click
 
+SAY `drowse`
+
 ### Requirements
 
 To use this, you'll need Talon with an eye tracker, the "Always on" eye tracking setting enabled, and a trained parrot model. Let me show you where that setting is.
 
 DO
 * show Talon dropdown with "Always on" setting
+
+SAY `drowse`
 
 All the details are in the README.
 
@@ -75,7 +85,7 @@ All the details are in the README.
 
 ### Explain
 
-Let's start with one of the hardest things — targeting something in a far corner of the screen. I'll look over at the corner, open the grid, narrow once, and click. Watch how fast this is.
+Let's start with one of the hardest things — targeting something in a far corner of the screen. I'm going to look at that corner over there, open the grid, narrow once, and click. Watch how fast this is.
 
 ### Demo
 
@@ -86,7 +96,9 @@ DO
 * `tih` narrow
 * `clop` click
 
-That red cell showed where my eyes landed, and I hit the corner target in under two seconds. Let me do it one more time with a different corner.
+SAY `drowse`
+
+That red cell showed where my eyes landed, and I hit the corner target in under two seconds. Let me do it one more time — I'll look at a different corner this time.
 
 ### Demo again
 
@@ -96,25 +108,44 @@ DO
 * `tih` narrow
 * `clop` click
 
+SAY `drowse`
+
 ---
 
 ## Segment 3: Basic Usage (~50s)
 
 ### Explain
 
-Let me walk through the full workflow step by step. I'm going to click a small UI icon. First I'll look at the target and open the grid — it'll zoom into where I was looking and show a screenshot as the grid overlay. Then I'll look at the right cell and narrow to zoom in further. Then I'll click, and the grid will close with the mouse landing right on the target.
+Let me walk through the full workflow step by step. I'm going to click that small icon right there. First I'll look at it and open the grid.
 
-### Demo
+### Open the grid
 
 DO
-* pick a small target — sidebar icon, collapse arrow, gutter icon, tab close button
 * look at target
 * `kuh` — grid opens
-* pause — let viewer see
+
+SAY `drowse`
+
+It zoomed right into where I was looking. You can see the screenshot underneath the grid overlay, and the red cell shows where my gaze landed. Now I'll look at the cell with my target in it and narrow.
+
+### Narrow
+
+DO
 * look at correct cell
 * `tih` — narrows
-* pause — let viewer see
+
+SAY `drowse`
+
+It zoomed in even further. I can see the exact icon I want. Now I'll click, and the grid will close with the mouse landing right on the target.
+
+### Click
+
+DO
 * `clop` — click
+
+SAY `drowse`
+
+There it is — landed right on it.
 
 ---
 
@@ -124,7 +155,7 @@ There's more you can do beyond a basic click.
 
 ### Explain dismissing
 
-If you open the grid and change your mind, just make the same sound again to close it. No click happens.
+If you open the grid and change your mind, just make the same sound again to close it. No click happens. I'll open the grid and then immediately close it.
 
 ### Demo dismissing
 
@@ -132,9 +163,11 @@ DO
 * `kuh` open
 * `kuh` close
 
+SAY `drowse`
+
 ### Explain hovering
 
-You can also use it to hover. Narrow to your target, then dismiss instead of clicking. The cursor moves to where you were aiming, but it doesn't click. Great for tooltips.
+You can also use it to hover. I'll narrow to a target, then dismiss instead of clicking. The cursor will move to where I was aiming, but it won't click — great for triggering tooltips.
 
 ### Demo hovering
 
@@ -144,9 +177,11 @@ DO
 * `kuh` dismiss
 * show cursor on target, tooltip appears
 
+SAY `drowse`
+
 ### Explain multiple narrows and re-centering
 
-You can also narrow as many times as you need — all the way down to the pixel level. And once you're at the deepest zoom, narrowing doesn't zoom in any further. Instead, it re-centers the view on your selection — same zoom level, it just pans over. Then you just click whenever you're ready.
+You can also narrow as many times as you need — all the way down to the pixel level. I'll open the grid and narrow a bunch of times so you can see it zoom all the way in. Once I'm at the deepest zoom, narrowing doesn't zoom in any further — instead it re-centers the view on my selection. Same zoom level, it just pans over. Then I'll click whenever I'm ready.
 
 ### Demo multiple narrows
 
@@ -155,6 +190,8 @@ DO
 * `tih` four or five times until showing pixels
 * `tih` one more time — re-centers
 * `clop` click
+
+SAY `drowse`
 
 ### Wrap up
 
@@ -172,6 +209,8 @@ Everything in Gaze Mouse Grid is customizable.
 
 DO
 * open `gaze_mouse_grid_settings.talon` in Cursor
+
+SAY `drowse`
 
 You just change the values directly in this file. Grid size controls how many cells — the default is 6 by 6, lower it for bigger cells. Initial narrow factor controls the first zoom — 2 is half the screen, 3 is a third. Settle delay is how long it waits for your eye tracker — bump it up if the grid opens in the wrong spot. Display ratio controls how big the overlay is — 0.5 is half your screen. And you can change the line color, hint color, and line width too.
 
