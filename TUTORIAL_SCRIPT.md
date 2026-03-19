@@ -18,185 +18,125 @@ Cmd+Shift+5 with mic on. Single recording, edit in iMovie.
 
 ### Intro
 
-SAY
-* hey, I'm Adam Edison
-* I'm a software developer and cofounder of Ember and Tide
-* I've been a member of the Talon beta community since 2020
-* this community has saved me a lot of pain in my hands
-* I wanted to start giving back, so I created this plugin
-* I hope you find it as useful as I have
+Hey, I'm Adam Edison. I've been a member of the Talon beta community since 2020. This community has saved me a lot of pain in my hands, and I wanted to start giving back — so I built this plugin called Gaze Mouse Grid. I hope you find it as useful as I have.
 
-### Four problems this solves
-
-SAY
-* built this for four reasons
+I built it because I kept running into four problems.
 
 ### Existing grids are slow
 
-SAY
-* existing mouse grids are slow, too many steps
+First, existing mouse grids are just slow. There are too many steps to get where you want to go. Let me show you what I mean.
 
 DO
 * open standard mouse grid, slowly narrow to an icon, close it
 
 ### Eye trackers lose accuracy on large monitors
 
-SAY
-* eye trackers lose accuracy on monitors bigger than 27"
-* especially in the corners
+Second, eye trackers lose accuracy on monitors bigger than 27 inches — especially in the corners. Watch what happens when I try to click something way over here.
 
 DO
 * enable eye tracking, try to click a far corner, show the miss
 
 ### Eye tracking cursor is distracting
 
-SAY
-* eye tracking cursor is distracting
-* jumps around while I'm trying to read
+Third, the eye tracking cursor is really distracting. It jumps around while you're trying to read, and it triggers hover tooltips and all kinds of UI noise. I'll switch over to a board game so you can really see this.
 
 DO
 * switch to BoardGameArena game
 * keep eye tracking on, try to read — cursor jumps, hover help fires everywhere
-* turn it off, read peacefully — hover help only when you want it
+* turn it off, read peacefully
+
+See how much better that is when the cursor isn't bouncing around?
 
 ### Voice commands wear out your voice
 
-SAY
-* voice commands wear out my voice
-* want a voiceless workflow
+And fourth, voice commands wear out your voice. I wanted a workflow that's completely voiceless.
 
 ### This plugin solves all four
 
-SAY
-* this plugin solves all four
-* starts grid where you're looking
-* fast and accurate on large screens
-* eye tracking stays off until you need it
-* entire interaction is parrot sounds
+Gaze Mouse Grid solves all four of these. It opens the grid right where you're looking. It's fast and accurate even on large screens. Eye tracking stays off until you actually need it. And the entire interaction uses parrot sounds — no voice required.
+
+Let me show you what that looks like. I'll open the grid, narrow in, and click.
 
 DO
 * `kuh` open, `tih` narrow, `clop` click
 
 ### Requirements
 
-SAY
-* need Talon, eye tracker with "Always on", trained parrot model
-* check the README
+To use this, you'll need Talon with an eye tracker, the "Always on" eye tracking setting enabled, and a trained parrot model. Let me show you where that setting is.
 
 DO
 * show Talon dropdown with "Always on" setting
+
+All the details are in the README.
 
 ---
 
 ## Segment 2: Large Screen Corners (~30s)
 
-### Set up the demo
+### Explain
 
-SAY
-* targeting something in a far corner
+Let's start with one of the hardest things — targeting something in a far corner of the screen. I'll look over at the corner, open the grid, narrow once, and click. Watch how fast this is.
 
-### Open grid in a corner
+### Demo
 
 DO
 * look at a far corner
 * `kuh` — grid opens
-
-SAY
-* grid jumped to where I was looking
-* red cell shows where it thinks my eyes landed
-
-DO
 * pause — let viewer see grid and red hint cell
-
-### Click the corner target
-
-SAY
-* one narrow, one click
-* corner target in under two seconds
-
-DO
 * `tih` narrow
 * `clop` click
-* repeat for a different corner
+
+That red cell showed where my eyes landed, and I hit the corner target in under two seconds. Let me do it one more time with a different corner.
+
+### Demo again
+
+DO
+* look at a different corner
+* `kuh` — grid opens
+* `tih` narrow
+* `clop` click
 
 ---
 
 ## Segment 3: Basic Usage (~50s)
 
-### Pick a target
+### Explain
 
-SAY
-* full workflow step by step
-* clicking a small UI icon
+Let me walk through the full workflow step by step. I'm going to click a small UI icon. First I'll look at the target and open the grid — it'll zoom into where I was looking and show a screenshot as the grid overlay. Then I'll look at the right cell and narrow to zoom in further. Then I'll click, and the grid will close with the mouse landing right on the target.
 
-DO
-* pick a small target
-* sidebar icon, collapse arrow, gutter icon, tab close button
-
-### Open the grid
-
-SAY
-* open the grid
+### Demo
 
 DO
+* pick a small target — sidebar icon, collapse arrow, gutter icon, tab close button
 * look at target
 * `kuh` — grid opens
-
-SAY
-* zoomed into where I was looking
-* screenshot as grid overlay
-* red cell shows where gaze landed
-
-DO
 * pause — let viewer see
-
-### Narrow
-
-SAY
-* narrow
-
-DO
 * look at correct cell
 * `tih` — narrows
-
-SAY
-* zoomed in further
-* can see the exact icon
-
-DO
 * pause — let viewer see
-
-### Click
-
-SAY
-* click, grid closes, lands on target
-
-DO
 * `clop` — click
 
 ---
 
 ## Segment 4: More Workflows (~60s)
 
-SAY
-* more you can do beyond basic click
+There's more you can do beyond a basic click.
 
-### Dismissing
+### Explain dismissing
 
-SAY
-* dismissing
-* same sound closes it, no click
+If you open the grid and change your mind, just make the same sound again to close it. No click happens.
+
+### Demo dismissing
 
 DO
 * `kuh` open
 * `kuh` close
 
-### Hovering
+### Explain hovering
 
-SAY
-* hovering
-* narrow to target, dismiss instead of click
-* cursor moves but doesn't click
+You can also use it to hover. Narrow to your target, then dismiss instead of clicking. The cursor moves to where you were aiming, but it doesn't click. Great for tooltips.
+
+### Demo hovering
 
 DO
 * `kuh` open
@@ -204,38 +144,23 @@ DO
 * `kuh` dismiss
 * show cursor on target, tooltip appears
 
-### Multiple narrows
+### Explain multiple narrows and re-centering
 
-SAY
-* multiple narrows
-* zoom as many times as needed
-* all the way to pixel level
+You can also narrow as many times as you need — all the way down to the pixel level. And once you're at the deepest zoom, narrowing doesn't zoom in any further. Instead, it re-centers the view on your selection — same zoom level, it just pans over. Then you just click whenever you're ready.
+
+### Demo multiple narrows
 
 DO
 * `kuh` open
 * `tih` four or five times until showing pixels
-
-### Re-centering at pixel level
-
-SAY
-* at deepest zoom, narrowing re-centers the view
-* same zoom level, just pans to your selection
-
-DO
 * `tih` one more time — re-centers
-
-### Click when ready
-
-SAY
-* click when ready
-
-DO
 * `clop` click
 
 ### Wrap up
 
-SAY
-* that's Gaze Mouse Grid
+And that's Gaze Mouse Grid!
+
+The link to the plugin and install instructions are in the description below. I'm also a software developer and cofounder of a company called Ember and Tide. If you need custom software development — big or small — I'd love to chat. That link is down there too.
 
 ---
 
@@ -243,50 +168,14 @@ SAY
 
 ### Open the settings file
 
-SAY
-* everything is customizable
+Everything in Gaze Mouse Grid is customizable.
 
 DO
 * open `gaze_mouse_grid_settings.talon` in Cursor
 
-SAY
-* just change the values directly in this file
+You just change the values directly in this file. Grid size controls how many cells — the default is 6 by 6, lower it for bigger cells. Initial narrow factor controls the first zoom — 2 is half the screen, 3 is a third. Settle delay is how long it waits for your eye tracker — bump it up if the grid opens in the wrong spot. Display ratio controls how big the overlay is — 0.5 is half your screen. And you can change the line color, hint color, and line width too.
 
-### Grid size
-
-SAY
-* grid size — how many cells
-* default is 6, so 6 by 6
-* lower it for bigger cells, easier to target
-
-### Initial narrow factor
-
-SAY
-* initial narrow factor — how much it zooms on first open
-* 2 is half the screen, 3 is a third
-
-### Settle delay
-
-SAY
-* settle delay — how long it waits for the eye tracker
-* increase this if the grid opens in the wrong spot
-
-### Display ratio
-
-SAY
-* display ratio — how big the overlay is on screen
-* 0.5 is half, bump it up if you want a bigger view
-
-### Colors and line width
-
-SAY
-* line color, hint color — RRGGBBAA hex
-* line width — pixels
-
-### Closing
-
-SAY
-* check the README for full details
+Check the README for full details on all of these.
 
 **Stop recording.**
 
@@ -298,4 +187,5 @@ SAY
 - [ ] Upload to YouTube — title: "Gaze Mouse Grid — Tutorial"
 - [ ] Fix auto-captions: "Talon," "parrot," "kuh," "tih," "clop"
 - [ ] Add GitHub repo URL to description
+- [ ] Add Ember and Tide URL to description
 - [ ] Publish
