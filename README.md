@@ -3,7 +3,13 @@
 A gaze-based mouse targeting tool for [Talon](https://talonvoice.com/) that uses eye tracking and parrot sounds to quickly navigate and click anywhere on screen.
 
 Built by [Ember & Tide](https://emberandtide.org/).
+
 For your custom software development needs - big or small, [get in touch](https://emberandtide.org/contact).
+
+## Quick Start Tutorial
+
+Find the [YouTube demo video here](https://www.youtube.com/watch?v=LCEUNt4XKmY).
+
 
 ## Why I built this
 
