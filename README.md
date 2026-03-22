@@ -31,9 +31,9 @@ git clone https://github.com/developer-funky-goblin/talon-gaze-mouse-grid.git
 ## How it works
 
 1. Say **"gaze grid"** (or make the `kuh` sound) — the grid reads your gaze position, narrows to that region, takes a screenshot, and displays it as a zoomed-in grid overlay
-2. Look at the cell containing your target, then make the **`tih`** sound — the grid narrows further into that cell and re-captures the screenshot
+2. Look at the cell containing your target, then make the `**tih`** sound — the grid narrows further into that cell and re-captures the screenshot
 3. Repeat step 2 until your target is easy to hit
-4. Make the **`clop`** sound — the grid closes, moves the mouse to the corresponding real-screen position, and clicks
+4. Make the `**clop**` sound — the grid closes, moves the mouse to the corresponding real-screen position, and clicks
 
 You can close the grid without clicking by saying **"gaze grid close"** or making the `kuh` sound again.
 
@@ -84,3 +84,4 @@ Any sound your parrot model recognizes can be used.
   - Adjust `user.gaze_grid_initial_narrow_factor` — 1 = no initial zoom, 3 = one-third of screen
 - **Target disappears after narrowing**
   - Increase `user.gaze_grid_narrow_padding` — default is 1 (3x3 cell region), higher values show more surrounding cells per narrow
+
