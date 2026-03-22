@@ -10,10 +10,11 @@ settings():
     # 2 = start with half the screen; 3 = start with a third, etc.
     user.gaze_grid_initial_narrow_factor = 2
 
-    # How much each narrow step zooms in. Lower values are more forgiving
-    # (the view covers more cells, so being off by a cell still works).
-    # Higher values zoom faster but require more precise cell selection.
-    user.gaze_grid_narrow_factor = 3
+    # Cells of padding around the selected cell when narrowing.
+    # 0 = no padding, zoom exactly to the selected cell.
+    # 1 = show a 3x3 region (selected cell + 1 neighbor on each side).
+    # 2 = show a 5x5 region.
+    user.gaze_grid_narrow_padding = 1
 
     # Delay after enabling control1 (head-snap) before reading cursor position.
     # Increase if your eye tracker needs more time to settle.
