@@ -26,6 +26,12 @@ mod.setting(
     desc="How much the initial gaze-based narrow zooms in (2 = half screen)",
 )
 mod.setting(
+    "gaze_grid_narrow_factor",
+    type=int,
+    default=3,
+    desc="How much each narrow step zooms in (lower = more forgiving, higher = more precise)",
+)
+mod.setting(
     "gaze_grid_settle_delay",
     type=str,
     default="200ms",
@@ -274,9 +280,8 @@ class GazeMouseGrid:
         re-center on (x, y) at the current zoom level instead.
         """
         if factor is None:
-            factor = settings.get("user.gaze_grid_size")
+            factor = settings.get("user.gaze_grid_narrow_factor")
 
-        grid_size = settings.get("user.gaze_grid_size")
         new_w = self.rect.width / factor
         new_h = self.rect.height / factor
 

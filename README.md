@@ -82,3 +82,5 @@ Any sound your parrot model recognizes can be used.
   - Adjust `user.gaze_grid_display_ratio` — 0.3 = 30% of screen, 0.7 = 70%
 - **Initial zoom is too tight/loose**
   - Adjust `user.gaze_grid_initial_narrow_factor` — 1 = no initial zoom, 3 = one-third of screen
+- **Narrowing is too aggressive / target disappears after narrowing**
+  - Lower `user.gaze_grid_narrow_factor` — default is 3, lower values show more area per narrow (more forgiving but requires more steps)
