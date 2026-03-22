@@ -7,6 +7,12 @@ def clamp(value, lo, hi):
     return max(lo, min(hi, value))
 
 
+def snap_to_cell_center(pct, grid_size):
+    """Snap a 0-1 percentage to the center of the nearest grid cell."""
+    cell = clamp(int(pct * grid_size), 0, grid_size - 1)
+    return (cell + 0.5) / grid_size
+
+
 mod = Module()
 mod.mode(
     "gaze_mouse_grid",
@@ -163,7 +169,7 @@ class GazeMouseGrid:
         ctrl.mouse_move(*target)
 
     def cursor_to_target(self):
-        """Map the cursor's position on the drawn grid to the real target region."""
+        """Map the cursor's exact position on the drawn grid to the real target region."""
         draw_rect = self.calc_draw_rect()
         mx, my = ctrl.mouse_pos()
 
@@ -259,15 +265,19 @@ class GazeMouseGrid:
             c.draw_line(x, y + i * h / grid_size, x + w, y + i * h / grid_size)
 
     def narrow_at_cursor(self):
-        """Narrow target rect centered on cursor's position within the drawn grid."""
+        """Narrow target rect centered on the nearest cell center."""
         if not self.active:
             return
 
         draw_rect = self.calc_draw_rect()
         mx, my = ctrl.mouse_pos()
+        grid_size = settings.get("user.gaze_grid_size")
 
-        target_x = self.rect.x + clamp((mx - draw_rect.x) / draw_rect.width, 0, 1) * self.rect.width
-        target_y = self.rect.y + clamp((my - draw_rect.y) / draw_rect.height, 0, 1) * self.rect.height
+        pct_x = clamp((mx - draw_rect.x) / draw_rect.width, 0, 1)
+        pct_y = clamp((my - draw_rect.y) / draw_rect.height, 0, 1)
+
+        target_x = self.rect.x + snap_to_cell_center(pct_x, grid_size) * self.rect.width
+        target_y = self.rect.y + snap_to_cell_center(pct_y, grid_size) * self.rect.height
 
         self.narrow_centered_on(target_x, target_y)
         self._hint_pos = (target_x, target_y)

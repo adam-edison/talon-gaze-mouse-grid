@@ -52,7 +52,7 @@ You will need a Talon beta subscription. That's what gives you access to the par
 
 You will also need an eye tracker. I use the Tobii Eye Tracker 5, but anything Talon supports works.
 
-In Talon's eye tracking preferences, set tracking to "Always on." The grid reads your gaze position when it opens, so it needs continuous gaze data even when eye tracking mouse control is off.
+In Talon's eye tracking preferences, set tracking to "Always on." The grid reads your gaze position when it opens, so it needs continuous gaze data even when your control mouse is off.
 
 And you need a trained parrot model. I use three sounds — `kuh`, `tih`, and `clop` — but you can configure any sounds your model recognizes. More details can be found in the readme.
 
