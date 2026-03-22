@@ -23,7 +23,8 @@ git clone https://github.com/developer-funky-goblin/talon-gaze-mouse-grid.git
 
 ## Requirements
 
-- [Talon](https://talonvoice.com/) with an eye tracker (e.g., [Tobii Eye Tracker 5](https://gaming.tobii.com/product/eye-tracker-5/))
+- [Talon](https://talonvoice.com/) beta (requires a [subscription](https://www.patreon.com/lunixbochs) — needed for parrot sound integration)
+- An eye tracker (e.g., [Tobii Eye Tracker 5](https://gaming.tobii.com/product/eye-tracker-5/))
 - Eye tracking **"Always on"** must be enabled in Talon's eye tracking preferences (the grid needs continuous gaze data even when eye tracking mouse control is off)
 - A parrot model with at least 3 sounds — train one with [parrot.py](https://github.com/chaosparrot/parrot.py) (defaults use `kuh`, `tih`, and `clop` but all sounds are customizable)
 
