@@ -7,6 +7,12 @@ def clamp(value, lo, hi):
     return max(lo, min(hi, value))
 
 
+def snap_to_cell_center(pct, grid_size):
+    """Snap a 0-1 percentage to the center of the nearest grid cell."""
+    cell = clamp(int(pct * grid_size), 0, grid_size - 1)
+    return (cell + 0.5) / grid_size
+
+
 mod = Module()
 mod.mode(
     "gaze_mouse_grid",
@@ -24,6 +30,12 @@ mod.setting(
     type=int,
     default=2,
     desc="How much the initial gaze-based narrow zooms in (2 = half screen)",
+)
+mod.setting(
+    "gaze_grid_narrow_padding",
+    type=int,
+    default=1,
+    desc="Cells of padding around the selected cell when narrowing (1 = 3x3 region)",
 )
 mod.setting(
     "gaze_grid_settle_delay",
@@ -157,7 +169,7 @@ class GazeMouseGrid:
         ctrl.mouse_move(*target)
 
     def cursor_to_target(self):
-        """Map the cursor's position on the drawn grid to the real target region."""
+        """Map the cursor's exact position on the drawn grid to the real target region."""
         draw_rect = self.calc_draw_rect()
         mx, my = ctrl.mouse_pos()
 
@@ -253,34 +265,58 @@ class GazeMouseGrid:
             c.draw_line(x, y + i * h / grid_size, x + w, y + i * h / grid_size)
 
     def narrow_at_cursor(self):
-        """Narrow target rect centered on cursor's position within the drawn grid."""
+        """Narrow to the selected cell plus surrounding padding cells."""
         if not self.active:
             return
 
         draw_rect = self.calc_draw_rect()
         mx, my = ctrl.mouse_pos()
+        grid_size = settings.get("user.gaze_grid_size")
+        padding = settings.get("user.gaze_grid_narrow_padding")
 
-        target_x = self.rect.x + clamp((mx - draw_rect.x) / draw_rect.width, 0, 1) * self.rect.width
-        target_y = self.rect.y + clamp((my - draw_rect.y) / draw_rect.height, 0, 1) * self.rect.height
+        pct_x = clamp((mx - draw_rect.x) / draw_rect.width, 0, 1)
+        pct_y = clamp((my - draw_rect.y) / draw_rect.height, 0, 1)
 
-        self.narrow_centered_on(target_x, target_y)
-        self._hint_pos = (target_x, target_y)
+        col = clamp(int(pct_x * grid_size), 0, grid_size - 1)
+        row = clamp(int(pct_y * grid_size), 0, grid_size - 1)
+
+        cell_w = self.rect.width / grid_size
+        cell_h = self.rect.height / grid_size
+
+        new_w = (1 + 2 * padding) * cell_w
+        new_h = (1 + 2 * padding) * cell_h
+
+        if new_w < 1 or new_h < 1:
+            target_x = self.rect.x + (col + 0.5) * cell_w
+            target_y = self.rect.y + (row + 0.5) * cell_h
+            self._recenter_current_zoom(target_x, target_y)
+            self._hint_pos = (target_x, target_y)
+            self.update_screenshot()
+            return
+
+        left = clamp(col - padding, 0, grid_size - (1 + 2 * padding))
+        top = clamp(row - padding, 0, grid_size - (1 + 2 * padding))
+
+        new_x = self.rect.x + left * cell_w
+        new_y = self.rect.y + top * cell_h
+
+        self._draw_rect_cache = None
+        self.rect = Rect(new_x, new_y, new_w, new_h)
+
+        self._hint_pos = (self.rect.x + (col - left + 0.5) * cell_w,
+                          self.rect.y + (row - top + 0.5) * cell_h)
         self.update_screenshot()
 
-    def narrow_centered_on(self, x, y, factor=None):
+    def narrow_centered_on(self, x, y, factor):
         """Narrow self.rect by the given factor, centered on (x, y).
 
-        If narrowing would shrink the rect below the minimum useful size,
-        re-center on (x, y) at the initial zoom level instead.
+        If narrowing would shrink cells below one pixel,
+        re-center on (x, y) at the current zoom level instead.
         """
-        if factor is None:
-            factor = settings.get("user.gaze_grid_size")
-
-        grid_size = settings.get("user.gaze_grid_size")
         new_w = self.rect.width / factor
         new_h = self.rect.height / factor
 
-        if new_w < grid_size or new_h < grid_size:
+        if new_w < 1 or new_h < 1:
             self._recenter_current_zoom(x, y)
             return
 
