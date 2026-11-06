@@ -1,3 +1,6 @@
+from datetime import datetime
+from pathlib import Path
+
 from talon import Module, actions, canvas, cron, ctrl, scope, screen, settings, ui
 from talon.skia import Paint, Rect
 
@@ -5,6 +8,13 @@ from talon.skia import Paint, Rect
 def clamp(value, lo, hi):
     """Clamp value between lo and hi."""
     return max(lo, min(hi, value))
+
+
+def _rect_contains(rect, x, y):
+    """Check whether the point (x, y) lies inside rect, edges included."""
+    inside_x = rect.x <= x <= rect.x + rect.width
+    inside_y = rect.y <= y <= rect.y + rect.height
+    return inside_x and inside_y
 
 
 def snap_to_cell_center(pct, grid_size):
@@ -67,6 +77,60 @@ mod.setting(
     default=0.5,
     desc="Fraction of screen used for the drawn grid (0.5 = half screen)",
 )
+mod.setting(
+    "gaze_grid_debug_capture",
+    type=bool,
+    default=False,
+    desc="Save each grid screenshot, a matching full-screen screenshot, and the capture rect to ~/.talon/gaze_grid_debug",
+)
+
+DEBUG_DIR = Path.home() / ".talon" / "gaze_grid_debug"
+_debug_capture_count = 0
+
+
+def _is_debug_capture_enabled() -> bool:
+    return settings.get("user.gaze_grid_debug_capture")
+
+
+def _next_debug_prefix() -> Path:
+    global _debug_capture_count
+    _debug_capture_count += 1
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    return DEBUG_DIR / f"{timestamp}-{_debug_capture_count:03d}"
+
+
+def _append_debug_log(line: str):
+    DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+    log_path = DEBUG_DIR / "log.txt"
+    with log_path.open("a") as log_file:
+        log_file.write(line + "\n")
+
+
+def _save_debug_capture(zoomed_img, rect, screen_rect):
+    """Save the grid screenshot, a full-screen screenshot, and the capture rect."""
+    if not _is_debug_capture_enabled():
+        return
+
+    DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+    prefix = _next_debug_prefix()
+    full_img = screen.capture_rect(screen_rect)
+    zoomed_img.write_file(f"{prefix}-zoomed.png")
+    full_img.write_file(f"{prefix}-full.png")
+    _append_debug_log(
+        f"{prefix.name} capture rect={rect} zoomed_img={zoomed_img.width}x{zoomed_img.height} "
+        f"screen_rect={screen_rect} full_img={full_img.width}x{full_img.height}"
+    )
+
+
+def _log_debug_click(cursor, draw_rect, rect, target):
+    """Record where the cursor was on the grid and where the click was sent."""
+    if not _is_debug_capture_enabled():
+        return
+
+    _append_debug_log(
+        f"click cursor={cursor} draw_rect={draw_rect} rect={rect} target={target}"
+    )
+
 
 _previous_modes: set[str] = set()
 
@@ -176,10 +240,20 @@ class GazeMouseGrid:
         pct_x = clamp((mx - draw_rect.x) / draw_rect.width, 0, 1)
         pct_y = clamp((my - draw_rect.y) / draw_rect.height, 0, 1)
 
-        return (
+        target = (
             self.rect.x + pct_x * self.rect.width,
             self.rect.y + pct_y * self.rect.height,
         )
+        _log_debug_click((mx, my), draw_rect, self.rect, target)
+        return target
+
+    def is_cursor_off_grid(self):
+        """Report whether the cursor is outside the drawn grid while the grid is open."""
+        if not self.active:
+            return False
+
+        mx, my = ctrl.mouse_pos()
+        return not _rect_contains(self.calc_draw_rect(), mx, my)
 
     def draw(self, c):
         """Draw the centered grid with screenshot background and hint highlight."""
@@ -351,6 +425,7 @@ class GazeMouseGrid:
 
         def finish_capture():
             self.img = screen.capture_rect(self.rect)
+            _save_debug_capture(self.img, self.rect, self.screen.rect)
             self.mcanvas.freeze()
 
         self.mcanvas.hide()
@@ -424,6 +499,10 @@ class GazeGridActions:
 
     def gaze_grid_click():
         """Click at the target location and close the grid"""
+        if gaze_grid.is_cursor_off_grid():
+            actions.app.notify("Cursor is outside the grid")
+            return
+
         _exit_grid_mode()
         gaze_grid.click_target()
         _restore_previous_modes()

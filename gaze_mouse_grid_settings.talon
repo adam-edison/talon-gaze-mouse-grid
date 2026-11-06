@@ -33,3 +33,7 @@ settings():
     # Fraction of screen used for the drawn grid.
     # 0.5 = grid occupies half the screen width/height.
     user.gaze_grid_display_ratio = 0.5
+
+    # Save each grid screenshot, a matching full-screen screenshot, and the
+    # capture rect to ~/.talon/gaze_grid_debug for diagnosing click offsets.
+    user.gaze_grid_debug_capture = false
